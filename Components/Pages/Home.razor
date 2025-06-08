@@ -1,0 +1,36 @@
+﻿@page "/"
+@rendermode InteractiveServer
+
+<PageTitle>VRC-OBS-Overlay</PageTitle>
+
+<div class="main-card">
+    @if (!string.IsNullOrEmpty(WorldImage))
+    {
+        <MudImage Src="@WorldImage" Elevation="25" Class="world-image rounded-lg"/>
+    }
+    <div class="text-container">
+        <MudText Class="world-name" Typo="Typo.body1">@WorldName</MudText>
+        <MudText Class="author-name" Typo="Typo.body2">@AuthorName</MudText>
+    </div>
+</div>
+
+@code {
+    private static string WorldName { get; set; } = "VRC OBS Overlay";
+    private static string AuthorName { get; set; } = "Waiting for world info...";
+    private static string WorldImage { get; set; } = "";
+    
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        Program.RegisterUpdateUi(UpdateUi);
+    }
+    
+    private void UpdateUi(WorldInfoData worldInfo)
+    {
+        WorldName = worldInfo.WorldName;
+        AuthorName = worldInfo.AuthorName;
+        WorldImage = worldInfo.ImageUrl;
+        
+        InvokeAsync(StateHasChanged);
+    }
+}

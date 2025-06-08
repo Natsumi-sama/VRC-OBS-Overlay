@@ -1,0 +1,46 @@
+html, body {
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: rgba(0, 0, 0, 0);
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.world-image {
+    width: 175px;
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 5px 5px -3px, rgba(0, 0, 0, 0.042) 0px 8px 10px 1px, rgba(0, 0, 0, 0.036) 0px 3px 14px 2px;
+}
+
+.main-card {
+    display: flex;
+    width: 750px;
+    height: 150px;
+    padding: 10px;
+    background-color: rgba(80, 80, 80, 0.4);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.text-container {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.text-container p {
+    font-size: 32px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.world-name {
+    color: #ffffff;
+}
+
+.author-name {
+    color: #e8e8e8;
+}
