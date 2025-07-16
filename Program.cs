@@ -32,7 +32,6 @@ internal static class Program
         updateLoop.Start();
 
         var builder = WebApplication.CreateBuilder(args);
-        builder.WebHost.UseStaticWebAssets();
 
         // Add services to the container.
         builder.Services.AddRazorComponents()
@@ -58,8 +57,8 @@ internal static class Program
             context.Response.Headers.Expires = "0";
             await next.Invoke();
         });
+        app.UseFileServer();
         app.UseAntiforgery();
-        app.MapStaticAssets();
         app.MapRazorComponents<App>()
             .AddInteractiveServerRenderMode();
 
